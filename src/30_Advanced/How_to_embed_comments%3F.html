@@ -1,0 +1,37 @@
+<!--
+  #### Introduction
+
+  Currently there are two ways how you can handle comments:
+
+  1. Link to the comment section in the original page.
+  2. Embed the comment section via `amp-iframe`. 
+
+-->
+<!doctype html>
+<html ⚡>
+<head>
+  <meta charset="utf-8">
+  <!-- #### Setup -->
+  <!--  Import the amp-iframe component in the header. -->
+  <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+</head>
+<body>
+
+  <!-- #### Basic Usage -->
+  <!--
+    TODO: Describe your example here
+  -->
+    <amp-iframe
+        src="https://disqus.com/embed/comments/?base=default&version=d074862f091cd9585b295f3979a4eb15&f=sebastianbenz&t_u=http%3A%2F%2Flocalhost%3A8000%2Fadvanced%2Fhow_to_embed_comments%2F&t_d=How%20to%20embed%20comments%3F&t_t=How%20to%20embed%20comments%3F&s_o=default"
+        sandbox="allow-Same-origin allow-forms allow-modals allow-scripts allow-popups"
+        layout="responsive"
+        frameborder="0"
+        width="600" height="500">
+    </amp-iframe>
+    Test
+
+</body>
+</html>
