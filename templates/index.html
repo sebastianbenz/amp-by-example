@@ -190,6 +190,7 @@
     <script async src="https://cdn.ampproject.org/v0.js"></script>
   </head>
   <body>
+    {{^isEmbed}}
     {{> menu.html}}
     {{> header.html}}
     <main class="categories">
@@ -211,6 +212,7 @@
         </a>
       </section>
     </div>
+    {{/isEmbed}}
     {{#categories}}
     <div class="category-container">
       <section id="{{url}}" class="category">
@@ -235,7 +237,9 @@
         </div>
         {{/categories}}
     </main>
+    {{^isEmbed}}
     {{> footer.html}}
+    {{/isEmbed}}
     {{> analytics.html}}
     {{> serviceworker.html}}
   </body>

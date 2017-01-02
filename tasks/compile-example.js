@@ -130,14 +130,16 @@ module.exports = function(config, updateTimestamp) {
       fileName: '/'
     };
 
-    Metadata.add(args);
-    args.fileName = '';
-    const html = pageTemplates.render(config.templates.index, args);
-    const indexFile = latestFile.clone({contents: false});
-    indexFile.path = path.join(latestFile.base, "index.html");
-    indexFile.contents = new Buffer(html);
-    gutil.log('Generated ' + indexFile.relative);
-    stream.push(indexFile);
+    compileTemplate(stream, {document: {}, file: latestFile}, args, {
+      template: config.templates.index,
+      targetPath: 'index.html',
+      isEmbed: false
+    });
+    compileTemplate(stream, {document: {}, file: latestFile}, args, {
+      template: config.templates.index,
+      targetPath: 'embed/index.html',
+      isEmbed: true
+    });
   }
 
   function compileSitemap(stream, categories) {

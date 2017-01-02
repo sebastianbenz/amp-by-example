@@ -128,7 +128,7 @@ function shouldNotCache(request) {
   return IGNORED_URLS.some(url => request.url.indexOf(url) != -1);
 }
 
-toolbox.options.debug = true;
+toolbox.options.debug = false;
 toolbox.router.default = toolbox.networkOnly;
 toolbox.router.get('/(.*)', ampByExampleHandler, {origin: self.location.origin});
 // cache first amp runtime 

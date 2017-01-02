@@ -26,6 +26,8 @@ const jasmine = require('gulp-jasmine');
 const eslint = require('gulp-eslint');
 const gutil = require('gulp-util');
 const gulpIf = require('gulp-if');
+const htmlmin = require('gulp-htmlmin');
+const cleanCSS = require('gulp-clean-css');
 const gulpIgnore = require('gulp-ignore');
 const favicons = require("gulp-favicons");
 const runSequence = require('run-sequence');
@@ -52,6 +54,7 @@ const paths = {
     video: 'dist/video',
     json: 'dist/json',
     scripts: 'dist/scripts',
+    styles: 'dist/styles',
     favicons: 'dist/favicons',
     fonts: 'dist/fonts',
     wellknown: 'dist/.well-known'
@@ -63,6 +66,7 @@ const paths = {
   playground: 'playground',
   src: 'src',
   scripts: ['tasks/**/*.js', 'gulpfile.js'],
+  styles: ['templates/css/*.css'],
   static: 'static/*.*',
   templates: {
     dir: 'templates',
@@ -191,6 +195,12 @@ gulp.task('copy:scripts', 'copy scripts', function() {
   return gulp.src(paths.scripts)
       .pipe(cache('scripts'))
       .pipe(gulp.dest(paths.dist.scripts));
+});
+
+gulp.task('copy:styles', 'copy styles', function() {
+  return gulp.src(paths.styles)
+      .pipe(cleanCSS())
+      .pipe(gulp.dest(paths.dist.styles));
 });
 
 gulp.task('copy:license', 'copy license', function() {
@@ -447,6 +457,7 @@ function performChange(content) {
 gulp.task('change', 'use this task to batch change samples', function() {
   return gulp.src('src/**/*.html')
         .pipe(change(performChange))
+         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('src/'));
 });
 
@@ -461,6 +472,7 @@ gulp.task('build', 'build all resources', [
   'copy:json',
   'copy:fonts',
   'copy:scripts',
+  'copy:styles',
   'copy:license',
   'copy:static',
   'compile:favicons',
