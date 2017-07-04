@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "dist",
+    "redirects": [ {
+      "source" : "/preview",
+      "destination" : "/",
+      "type" : 301
+    }
+    ]
+  }
+}

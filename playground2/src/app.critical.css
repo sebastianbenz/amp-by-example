@@ -1,0 +1,318 @@
+@import "~normalize.css";
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Arial,sans-serif;
+  margin: 0;
+  padding: 0;
+  min-width: 315px;
+  -webkit-font-smoothing: antialiased;
+  background: #fff;
+  color: #4a4a4a;
+  line-height: 1.15;
+}
+
+header {
+  position: fixed;
+  background-color: #fff;
+  color: #000;
+  z-index: 999;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  width: 100%;
+  padding-right: 0.5rem;
+}
+
+header #logo {
+  font-size: 1.2em;
+  margin-right: auto;
+  margin-left: 1.5rem;
+}
+
+header .navbar-trigger {
+  line-height: 3.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: inline;
+  align-self: flex-start;
+}
+
+header #runtime-select {
+  width: 130px;
+  height: 56px;
+  margin-left: 32px;
+  margin-right: 2rem;
+}
+
+header #error-indicator {
+  padding: .7em .8em;
+  margin-right: 1rem;
+  text-align: center;
+  color: #333;
+  color: #B60845;
+  border-color: #B60845;
+  font-size: 1rem;
+  transition: border-color 0.25s cubic-bezier(0, 0, 0.3, 1);
+  text-decoration: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  vertical-align: middle;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  line-height: 1.125rem;
+  opacity: 1;
+  text-transform: uppercase;
+}
+
+header #error-indicator:active {
+  background-color: #f5f5f5;
+
+}
+
+header #error-indicator.waiting {
+  opacity: 0;
+  border-color: #E0E0E0;
+}
+header #error-indicator.pass {
+  border: none;
+  color: #333;
+  cursor: auto;
+  pointer-events: none;
+}
+#error-list {
+  display: none;
+}
+
+.card, .panel {
+box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+
+.panel {
+  width: calc(50% - 12px);
+  overflow: hidden;
+}
+
+.panel .panel-header {
+  display: block;
+  height: 32px;
+  width: 100%;
+  background-color: #fff;
+  color: rgba(0,0,0,.87);
+  padding-left: 1rem;
+  position: relative;
+  top: 0;
+}
+
+.button {
+    line-height: 1.5rem;
+    color: rgba(0, 0, 0, 0.87);
+    display: inline-block;
+    position: relative;
+    min-width: 64px;
+    height: 32px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 32px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.18);
+}
+.button:hover {
+  cursor: pointer;
+}
+.button:active, .button:hover {
+  background-color: #f2f2f2;
+  outline: none;
+}
+
+#load-template {
+  float: right;
+}
+
+.panel-header select {
+  background-color: white;
+  border: none;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1em;
+  padding: 0.5em 1.5em 0.5em 0em;
+  margin: 0;      
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.panel-header select.minimal {
+  background-image:
+  linear-gradient(45deg, transparent 50%, gray 50%),
+  linear-gradient(135deg, gray 50%, transparent 50%);
+  background-position:
+  calc(100% - 10px) calc(0.75em + 2px),
+  calc(100% - 05px) calc(0.75em + 2px);
+  background-size:
+  5px 5px,
+  5px 5px,
+  1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+.panel-header select.minimal:focus {
+  background-image:
+  linear-gradient(45deg, green 50%, transparent 50%),
+  linear-gradient(135deg, transparent 50%, green 50%);
+  background-position:
+  calc(100% - 5px) 1em,
+  calc(100% - 10px) 1em;
+  background-size:
+  5px 5px,
+  5px 5px,
+  1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: green;
+  outline: 0;
+}
+
+.panel-header select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+main {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  padding: 8px 0;
+}
+
+main > .panel + .panel {
+  margin-left: 8px;
+}
+
+#drag {
+  width: 8px;
+  height: 100%;
+  cursor: col-resize;
+}
+
+#source {
+  margin-left: 8px;
+  position: relative;
+  min-width: 300px;
+}
+
+#source #gutters {
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-height: 100%;
+  white-space: nowrap;
+  width: 38px;
+  margin-bottom: -30px;
+}
+
+#bottom-navigation {
+  display: none;
+}
+
+#preview-header-close {
+  display: none;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+  supported by Chrome and Opera */
+}
+
+@media (max-width: 767px) { 
+  #drag {
+    display: none;
+  }
+  header #logo {
+    margin-left: 1rem;
+  }
+  header #runtime-select {
+    margin-right: 1rem;
+  }
+  main {
+    display: block;
+    position: absolute;
+    padding: 0;
+  }
+  .panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  #source {
+    margin-left: 0;
+  }
+  #preview {
+    position: fixed;
+    background: #fff;
+    pointer-events: none;
+    transform: translateY(100%);
+    transition: transform 0.2s cubic-bezier(0, 0, 0.3, 1);
+  }
+
+  #preview.show {
+    z-index: 10000;
+    transform: translateY(0%);
+    pointer-events: auto;
+  }
+  #preview.hide {
+    transform: translateY(100%);
+  }
+  #source {
+    margin-top: 8px;
+  }
+  #preview #panel-header {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    position: fixed;
+    top: 0;
+  }
+}
